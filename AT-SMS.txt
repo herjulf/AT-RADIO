@@ -1,0 +1,100 @@
+Default for A6 115.200 bps
+
+Boot printout when SIM correcly inserted
+
+^CINIT: 1, 0, 0
+^CINIT: 2, 32, 41891
+^STN: 38
+^CINIT: 4, 8192, 38                                                         
+^CINIT: 8, 2048, 1                                                          
+^CINIT: 16, 0, 1638425                                                      
+^CINIT: 32, 0, 0
++CREG: 0
++CTZV:17/08/24,13:45:20,+02
++CIEV: service,  1
++CIEV: roam, 0
++CREG: 1
+
+# Manual check for SIM inserted
+AT+CPIN?
++CPIN:READY
+OK
+
+# Most basic test
+at
+OK
+
+#Enable SMS
++CREG: 1
+AT+CMGF=1
+OK
+
+# Remember to finish SMS with CTRL-Z
+
+#SMS Capabilties
+AT+CSCS=?
++CSCS: ("GSM","HEX","PCCP936","UCS2")
+
+# Test SMS to Robert
+AT+CMGF=1
+OK
+AT+CMGS="0769471944" 
+> Hej.
++CMGS: 0
+
+#SMS To get APN info to 123
+
+OK
+AT+CMGS="123"
+> 
++CMGS: 1 
+
+OK
+
++CIEV: "MESSAGE",1
++CMT: "Hej. F�r att h�mta inst�llningar till din mobil surfa in p� www.tele2.se/installningar . Mvh Tele2
+
+at
+OK
+
+#SMS to Peter
+AT+CMGF=1
+OK
+AT+CMGS="0702277981"
+5M� 2
+OK
+
+#Receiving SMS
++CIEV: "MESSAGE",1
++CMT: "+46702277981",,"2017/08/24,16:17:52+02"
+Hej sj�lv!
+
+
+### GPRS STUFF TO COME------------------------------
+OK
+AT+CGATT? 
++CGATT:0
+
+OK
+AT+CIPSHUT 
++CME ERROR:50
+AT+CIPSTATUS 
+
++CIPSTATUS:0,IP INITIAL  
+1,IP INITIAL  
+2,IP INITIAL  
+3,IP INITIAL  
+4,IP INITIAL  
+5,IP INITIAL  
+6,IP INITIAL  
+7,IP INITIAL  
+
+OK
+AT+CIPMUX=0
+OK
+ AT+CIICR 
++CME ERROR:50
+AT+CMGF=1 
+OK
+AT+CSMP?
++CSMP: 17,167,0,0
