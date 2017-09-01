@@ -1,0 +1,3 @@
+AT+CSTT="4g.tele2.se", "", ""
+
+AT+CIICR

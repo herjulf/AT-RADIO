@@ -1,0 +1,16 @@
+PWR_KEY seems to work like chip select that can be used from the MCU
+If connected to VCC Radio start immediately
+
+For testing via minicom the power button can be used instead.
+
+Note!
+It's very important to initiiate autobaud corretly. Seems like 
+use of modem init sequence is working. 
+
+For minicom:
+
+W+--------------------[Modem and dialing parameter setup]---------------------+
+ |                                                                            |
+O| A - Init string ......... AT^M                                             |
+
+
