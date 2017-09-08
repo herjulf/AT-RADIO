@@ -1,0 +1,26 @@
+Connected 15mA
+Ringing   70mA
+
+SIM800
+at 4.1V
+
+
+
+AT                                                                              
+OK                                                                              
+AT+CSTT="4g.tele2.se", "", ""                                                   
+OK
+AT+CIICR
+OK
+AT+CIFSR
+100.79.27.199
+
+OK
+AT+CIPSTART=TCP, 78.69.59.15, 80
+CONNECT OK
+
+OK
+
+
+Connected GPRS approx 33mA
+
