@@ -14,3 +14,8 @@ W+--------------------[Modem and dialing parameter setup]---------------------+
 O| A - Init string ......... AT^M                                             |
 
 
+FET IRLML2502 N-FET
+ G 1O0
+ D RESET
+ S GND
+
