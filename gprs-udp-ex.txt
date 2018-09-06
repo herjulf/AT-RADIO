@@ -1,0 +1,19 @@
+
+
+"ATE0\r\n"   //ATE0 = echo mode(ATE) is off (0)
+
+"AT+CGATT=1\r\n"
+
+"AT+AT+CSTT=\"internet.tele2.se\"\r\n"  //here you define the name the APN
+
+"AT+CIICR\r\n"
+
+"AT+cipstart=\"UDP\",\"192.16.125.232\",\"5683\"\r\n" //85.1.2.3 is the destination IP address, 20000 is the destination Port number
+
+"AT+CIPSEND=5\r\n"
+
+"12345\r\n" //12345 is the message
+
+"AT+CIPSHUT\r\n"
+
+
