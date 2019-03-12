@@ -1,3 +1,32 @@
+
+SIM7020E power measurements using fluke 17B+. Good antenna.
+Revision:1752B05SIM7020E VCC=5V
+
+Off        120 uA
+Register    16 mA Approx 30 sec
+On         5.6 mA Roaming (automatic)
+On         5.6 mA Roaming with APN set
+On         5.7 mA Roaming with APN set ping
+Sleep      0.2 mA Sleep mode AT+CSCLK=2
+
+
+AT+CSCLK=2
+OK
+AT+CSCLK=0
+OK
+AT+CIPPING="192.16.125.232",4,32,10
+OK
++CIPPING: 1,192.16.125.232,10,0
++CIPPING: 2,192.16.125.232,10,0
++CIPPING: 3,192.16.125.232,10,0
++CIPPING: 4,192.16.125.232,10,0
+
+Transition to sleep approx 2s
+Transition from sleep approx 2s
+
+
+
+
 Connected 15mA
 Ringing   70mA
 

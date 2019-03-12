@@ -1,0 +1,230 @@
+
+Sök OPERATÖRER
+--------------
+AT+COPS=?
++COPS: (1,"24001","24001","24001",9),,(0-4),(0-2)
+
+Manuell reg
+-----------
+OK
+AT+CREG=1
+OK
+
+ROAMING
+-------
+AT+CREG?
++CREG: 1,5
+OK
+
+Välj TELIA
+----------
+AT+COPS=1,2,"24001"
+OK
+
+Konfig APN
+----------
+AT+CGDCONT=1,"IP","lpwa.telia.iot"
+OK
+
+Kolla SIGNAL
+------------
+AT+CSQ
++CSQ: 4,0
+
+SW REVISON
+----------
+OK
+AT+GSV
+SIMCOM_Ltd
+SIM7020E
+Revision:1752B05SIM7020E
+
+AT+GSV 
+SIMCOM_Ltd
+SIM7020E
+Revision:1752B07SIM7020E   
+
+
+PING labpc på KTH
+------------------
+AT+CIPPING="192.16.125.232",4,32,10
+OK
++CIPPING: 1,192.16.125.232,10,0
++CIPPING: 2,192.16.125.232,10,0
++CIPPING: 3,192.16.125.232,10,0
++CIPPING: 4,192.16.125.232,10,0
+
+
+
+No antenn
+AT+CSQ
++CSQ: 0,0
+
+PCB antenna
+AT+CSQ
++CSQ: 19,0
+
+Stub antenna (2.4GHz?)
+AT+CSQ
++CSQ: 5,0
+
+AT+CSGACT=0,1
+OK  
+
+SIM7020E
+-------
+
+AT+COPS=1,2,"24001"
+
+APN
+--
+AT+CSGACT=1,1,"lpwa.telia.iot"
+OK
+
+SCRAMBLER
+---------
+AT+CSPCHSC?                                                  
++CSPCHSC: 1
+
+FUNCTION
+--------
+at+cfun=1
+OK                                                  
+
+IMEI
+----
+AT+GSN                                              
+868333030187971   
+
+
+
+
+CENG
+-----
+at+ceng?                                             
++CENG: 6254,3,183,"018ECC12",-116,-13,-103,-2,20,"0456",1,,-105     
+
+Telia DNS
+----------
+162.13.142.169
+
+
+https://www.waveshare.com/wiki/SIM7020E_NB-IoT_HAT
+
+
+AT 	Check module status 	OK
+ATE 	ATE1:Echo Mode On; ATE0: Echo Mode Off 	OK
+AT+CSQ 	Check Internet Signals Quality 	OK
+AT+CGMR 	Check Firmware Version 	OK
+AT+CGREG? 	Check Internet register status 	OK
+AT+CGACT? 	Check PDP status 	OK
+AT+COPS? 	Check Internet Information 	OK
+AT+CGCONTRDP 	Check Internet status 	OK
+AT+CFUN=0 	Turn off RF 	OK
+AT*MCGDEFCONT 	Set APN, e,g: AT*MCGDEFCONT="IP","3GNET" 	OK
+AT+CFUN=1 	Turn On RF 	OK
+
+ TCP Client
+ ----------
+AT+CSOC=1,1,1 	Create TCP socket, <socket_id>=0 	OK
+AT+CSOCON=0,2317,"118.190.93.84" 	Connect to remote server 	OK
+AT+CSOSEND=0,0,"Hello World" 	Send data 	OK
+AT+CSOCL=0 	Close socket 	OK
+AT+CSOSENDFLAG 	Enable Send ACK 	OK
+AT+CSORCVFLAG 	Enable receive ACK 	OK
+AT+CSOCON? 	Check communication port and type 	OK
+UDP client commands
+
+ UDP Client
+ ----------
+Commands 	Descriptions 	Return
+AT+CSOC=1,2,1 	Create UDP socket, <socket_id>=0 	OK
+AT+CSOCON=4,524,"116.247.119.165" 	Connect remote server
+AT+CSOSEND=4,0,"Waveshare" 	Send data 	OK
+AT+CSOCL=0 	Close socket 	OK
+AT+CSOSENDFLAG 	Enable send ACK 	OK
+AT+CSORCVFLAG 	Enable receive ACK 	OK
+AT+CSOCON? 	Check communication port and types 	OK 
+
+
+AT                                                                            
+OK                                                                            
+AT+CGCONTRDP                                                                  
+OK
+AT+CFUN=0
++CPIN: NOT READY
+
+OK
+AT*MCGDEFCONT="IP","lpwa.telia.iot"
+OK
+AT+CFUN=1
+OK
+
++CPIN: READY
+AT+CIPPING="192.16.125.232",4,32,10
+OK
++CIPPING: 1,192.16.125.232,3,52                                                +
++CIPPING: 2,192.16.125.232,6,52
++CIPPING: 3,192.16.125.232,6,52
++CIPPING: 4,192.16.125.232,7,52
+
+AT+CIPPING="192.16.125.232",4,32,100
+OK
++CIPPING: 1,192.16.125.232,10,52
++CIPPING: 2,192.16.125.232,7,52
++CIPPING: 3,192.16.125.232,9,52
++CIPPING: 4,192.16.125.232,9,52
++AT+CDNSGIP=herjulf.se
+OK
++CDNSGIP: 1,"herjulf.se","213.64.240.137"
++AT+CDNSCFG?
+PrimaryDns: 218.4.4.4
+SecondaryDns: 114.114.114.114
+OK
+AT+CDNSCFG=8.8.8.8
+OK
+AT+CDNSCFG?
+PrimaryDns: 8.8.8.8
+SecondaryDns: 0.0.0.0
+OK
+AT+CDNSGIP=kth.se
+OK
++CDNSGIP: 1,"kth.se","130.237.28.40"    
+
+
+AT                                                                            
+OK                                                                            
+AT+CGCONTRDP              
++CGCONTRDP: 1,5,"lpwa.telia.iot","10.81.172.187.255.255.255.0"
+
+OK
+
+193.44.165.16
+
+
+
+eDRX
+-----
+at+cedrxs?
++CEDRXS: 5,"0000"
+OK
+
+at+cedrxrdp
++CEDRXRDP: 0
+OK
+
+at+cedrxs=1
+OK
+
+at+cedrxs?
++CEDRXS: 5,"0101"
+OK
+
+AT*MEDRXCFG=?
+*MEDRXCFG: (0-3),(5),("0000"-"1111"),("0000"-"1111")
+OK
+
+AT*MEDRXCFG?
+*MEDRXCFG: 5,"0101"
+OK
+
