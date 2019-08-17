@@ -1,0 +1,46 @@
+AT
+OK
+
+AT+COPS=?                                                                       
++COPS: (1,"24001","24001","24001",9),,(0-4),(0-2)
+OK                                                                              
+AT+CREG?
++CREG: 0,5
+OK
+AT+CSQ
++CSQ: 27,0
+OK
+
+AT+GSV                                                                          
+SIMCOM_Ltd
+SIM7020E
+Revision:1752B08SIM7020E
+OK                                                                              
+
+AT+CIPPING="192.16.125.232",4,32,10
+OK
++CIPPING: 1,192.16.125.232,10,0
++CIPPING: 2,192.16.125.232,10,0
++CIPPING: 3,192.16.125.232,10,0
++CIPPING: 4,192.16.125.232,10,0
+
+AT+CGCONTRDP
+OK
+AT+COPS=1,2,"24001"
+OK
+AT+CGDCONT=1,"IP","lpwa.telia.iot"
+OK
+
+at+ceng?
++CENG: 6254,3,208,"018E401C",-66,-5,-61,12,20,"040C",0,,-55
+OK
+
+AT+CDNSGIP=herjulf.se
+OK
++CDNSGIP: 0,8
+AT+CDNSCFG=8.8.8.8
+OK
+AT+CDNSGIP=herjulf.se
+OK
++CDNSGIP: 0,8
+
