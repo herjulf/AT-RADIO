@@ -1,0 +1,75 @@
+
+at+cpowd=1
+NORMAL POWER DOWN
+
++PDP: DEACT
+æ€˜€3`0†fóÀ˜€
+SMS Ready
+
+DST: 0
+
+*PSUTTZ: 21/12/03,15:36:13","+04",0
+
+AT+CIPMUX=1
+OK
+AT+CAPNMODE=0
+OK
+AT+CSTT="lpwa.telia.iot"
+OK
+
+AT+CIICR
+OK
+
+AT+CIFSR
+10.94.96.113
+AT+CIPPING="192.16.125.232"
++CIPPING: 1,"192.16.125.232",69,53
++CIPPING: 2,"192.16.125.232",70,53
++CIPPING: 3,"192.16.125.232",78,53
++CIPPING: 4,"192.16.125.232",80,53
+
+OK
+at+clport?
++CLPORT: 0,0,0
++CLPORT: 1,0,0
++CLPORT: 2,0,0
++CLPORT: 3,0,0
++CLPORT: 4,0,0
++CLPORT: 5,0,0
++CLPORT: 6,0,0
++CLPORT: 7,0,0
+
+OK
+
+at+clport=0,"UDP",1234
+OK
+at+clport?
++CLPORT: 0,0,1234
++CLPORT: 1,0,0
++CLPORT: 2,0,0
++CLPORT: 3,0,0
++CLPORT: 4,0,0
++CLPORT: 5,0,0
++CLPORT: 6,0,0
++CLPORT: 7,0,0
+
+OK
+at+cipstart=0,"UDP",192.16.125.232,10000
+OK
+
+0, CONNECT OK
+at+ciphexs=2
+OK
+at+cipsrip=1
+OK
+at+clport="UDP",8888
+ERROR
+at+clpoerrt=1,"UDP",8888
+OK
+at+cipstart=1,"UDP",130.237.37.8888202.37,8888
+OK
+
+1, CONNECT OK
+at+cipsend=1,5
+> hejsa
+1, SEND OK
